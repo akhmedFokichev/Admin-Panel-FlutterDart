@@ -1,4 +1,4 @@
-package com.example.puma_adm
+package xsdk.puma.adm.puma_adm
 
 import io.flutter.embedding.android.FlutterActivity
 
