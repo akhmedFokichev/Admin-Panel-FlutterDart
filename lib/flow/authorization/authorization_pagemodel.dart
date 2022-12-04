@@ -1,17 +1,21 @@
 
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:puma_adm/flow/main/main_page.dart';
+import 'package:puma_adm/widgets/alert.dart';
 import 'package:stacked/stacked.dart';
 
 class AuthorizationPageModel extends BaseViewModel {
+
   AuthorizationPageModel(BuildContext context) {
+    alert = Alert(context);
     navigator = Navigator.of(context);
   }
 
   // Services
   late NavigatorState navigator;
+  late Alert alert;
 
   // Services
 
@@ -27,14 +31,15 @@ class AuthorizationPageModel extends BaseViewModel {
 
   Future onReady() async {
     //
+
   }
 
   void didLoginText(String string) {
     loginText = string;
     isEnableMakeButton = (loginText.isNotEmpty && passwordText.isNotEmpty);
     notifyListeners();
-
   }
+
   void didPasswordText(String string) {
     passwordText = string;
     isEnableMakeButton = (loginText.isNotEmpty && passwordText.isNotEmpty);
@@ -46,5 +51,17 @@ class AuthorizationPageModel extends BaseViewModel {
     log("passwordText>" + passwordText);
     // navigator.push(MainPageRoute(44));
     // notifyListeners();
+
+    alert.show('title', 'content',
+        [
+          AlertAction(text: 'text', onPressed: () {
+          }),
+          AlertAction(text: '22222', onPressed: () {
+          }),
+          AlertAction(text: '3333333', onPressed: () {
+          })
+        ]
+    );
+
   }
 }
